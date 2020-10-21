@@ -25,7 +25,13 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginRight: 20,
-    backgroundColor: "#ffc8dd"
+    textTransform: "capitalize"
+  },
+  fill: {
+    height: 80
+  },
+  navBar: {
+    background: "#ced7db"
   }
 }));
 
@@ -57,16 +63,12 @@ const Navbar = (props) => {
     {
       menuTitle: 'Projects',
       redirect: '/projects'
-    },
-    {
-      menuTitle: 'Work Experience',
-      redirect: '/work'
     }
   ]
 
   return (
     <div className={classes.root}>
-      <AppBar position="sticky" style={{background:"#0077b6"}}>
+      <AppBar position="fixed" className={classes.navBar}>
         <Toolbar>
             <div>
               {isMobile ? (
@@ -101,13 +103,13 @@ const Navbar = (props) => {
               <div>
               <Button className={classes.button} variant="contained" onClick={()=>{handleButtonClick('/')}}>About</Button>
               <Button className={classes.button} variant="contained" onClick={()=>{handleButtonClick('/projects')}}>Projects</Button>
-              <Button className={classes.button} variant="contained" onClick={()=>{handleButtonClick('/work')}}>Work Experience</Button>
               </div>
             )}
 
             </div>
         </Toolbar>
       </AppBar>
+      <Toolbar className={classes.fill}/>
     </div>
   );
 }
