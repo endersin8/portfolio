@@ -7,9 +7,10 @@ import Typography from '@material-ui/core/Typography'
 const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.down("xs")]: {
-      backgroundImage: `url(${"/assets/winter-image2.jpeg"})`
+      backgroundImage: `url(${"/assets/winter-image2.jpeg"})`,
     },
     backgroundImage: `url(${"assets/winter-image3.jpg"})`,
+    backgroudRepeat: "repeat-y",
     position:"relative",
     minHeight:"100vh"
   },

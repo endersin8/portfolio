@@ -25,7 +25,9 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginRight: 20,
-    textTransform: "capitalize"
+    textTransform: "capitalize",
+    background: "#fff",
+    fontWeight: "bold"
   },
   fill: {
     height: 80

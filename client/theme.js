@@ -18,7 +18,7 @@ const theme = createMuiTheme({
     }
   },
   typography: {
-    fontFamily: '"Comic Sans MS", "cursive", sans-serif'
+    fontFamily: '"Courier New", "Courier", monospace'
   }
 })
 

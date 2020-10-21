@@ -6,7 +6,7 @@ import {Typography, IconButton, Accordion, AccordionSummary, AccordionDetails} f
 import EmojiEmotionsTwoToneIcon from '@material-ui/icons/EmojiEmotionsTwoTone';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
-import {Biography} from './aboutContent.js'
+import {Biography, Work} from './aboutContent.js'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   text: {
-    fontFamily: '"Courier New", "Courier", monospace',
     fontWeight: "bold"
   },
   accContainer: {
@@ -39,11 +38,19 @@ const useStyles = makeStyles((theme) => ({
   },
   accDetails: {
     background: "#fff"
-  },
-  accText: {
-    fontFamily: '"Courier New", "Courier", monospace',
   }
 }))
+
+const abouts = [
+  {
+    name: "Biography",
+    component: Biography
+  },
+  {
+    name: "Work Experience",
+    component: Work
+  }
+]
 
 const About= () => {
   const [img, changeImg] = React.useState(false)
@@ -60,56 +67,21 @@ const About= () => {
       </IconButton>
       <Avatar alt="Anderson Yoon" className={classes.av} src={img ? "assets/60436966.png" : "assets/IMG_0698.jpeg"}/>
       <Box className={classes.accContainer}>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon/>}
-          className={classes.accHeading}
-          >
-          <Typography className={classes.text}>Biography</Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.accDetails}>
-          <Biography className={classes.accText}/>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon/>}
-          className={classes.accHeading}
-          >
-          <Typography className={classes.text}>Work Experience</Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.accDetails}>
-          <Typography className={classes.accText}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon/>}
-          className={classes.accHeading}
-          >
-          <Typography className={classes.text}>Interests</Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.accDetails}>
-          <Typography className={classes.accText}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon/>}
-          className={classes.accHeading}
-          >
-          <Typography className={classes.text}>Contact Information</Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.accDetails}>
-          <Typography className={classes.accText}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+        {abouts.map((section)=>{
+          return(
+            <Accordion key={section.name}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon/>}
+                className={classes.accHeading}
+                >
+                <Typography className={classes.text}>{section.name}</Typography>
+              </AccordionSummary>
+              <AccordionDetails className={classes.accDetails}>
+                {<section.component/>}
+              </AccordionDetails>
+            </Accordion>
+          )
+        })}
       </Box>
     </Box>
   )
