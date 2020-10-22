@@ -6,7 +6,7 @@ import {Typography, IconButton, Accordion, AccordionSummary, AccordionDetails} f
 import EmojiEmotionsTwoToneIcon from '@material-ui/icons/EmojiEmotionsTwoTone';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
-import {Biography, Work} from './aboutContent.js'
+import {Biography, Work, Education, Skills, Interests, Contact} from './aboutContent.js'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,8 +47,24 @@ const abouts = [
     component: Biography
   },
   {
+    name: "Skills",
+    component: Skills
+  },
+  {
     name: "Work Experience",
     component: Work
+  },
+  {
+    name: "Education",
+    component: Education
+  },
+  {
+    name: "Interests",
+    component: Interests
+  },
+  {
+    name: "Contact",
+    component: Contact
   }
 ]
 

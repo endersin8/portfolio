@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
   },
   navBar: {
     background: "#ced7db"
+  },
+  mItem: {
+    fontWeight: "bold"
   }
 }));
 
@@ -96,7 +99,7 @@ const Navbar = (props) => {
                     {menuItems.map(menuItem => {
                       const {menuTitle, redirect} = menuItem
                       return (
-                        <MenuItem key={menuTitle} onClick={() => {handleMenuClick(redirect)}}>{menuTitle}</MenuItem>
+                        <MenuItem key={menuTitle} className={classes.mItem} onClick={() => {handleMenuClick(redirect)}}>{menuTitle}</MenuItem>
                       )
                     })}
                   </Menu>
