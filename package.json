@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
     "build-client-watch": "webpack -w",
-    "start-dev": "npm run build-client-watch & nodemon ./src/app.js"
+    "build": "npm run build-client-watch & nodemon ./src/app.js"
   },
   "author": "Anderson Yoon",
   "license": "ISC",
