@@ -2,24 +2,38 @@ import { createMuiTheme } from '@material-ui/core/styles'
 
 const theme = createMuiTheme({
   palette: {
+    common: {
+      white: "#76ff03",
+    },
     primary: {
-      main: "#9da6a9",
-      light: "#c1d5e0",
-      dark: "#62757f",
+      main: "#212121",
+      light: "#484848",
+      dark: "#000000",
     },
     secondary: {
-      main: "#cfd8dc",
-      light: "#ffffff",
-      dark: "#9ea7aa"
+      main: "#263238",
+      light: "#4f5b62",
+      dark: "#000a12"
     },
     background: {
-      paper:  "#ced7db",
-      default: "#c1d5e0"
+      paper: "#212121",
+      default: "#212121"
+    },
+    action: {
+      hover: "#484848"
+    },
+    text: {
+      primary: "#76ff03",
+      secondary: "#32cb00"
     }
   },
   typography: {
-    fontFamily: '"Courier New", "Courier", monospace'
-  }
+    fontFamily: '"Courier New", "Courier", monospace',
+    button: {
+      fontFamily: '"Courier New", "Courier", monospace',
+      fontColor: "#76ff03",
+    }
+  },
 })
 
 export default theme

@@ -19,25 +19,32 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(20)
   },
   smile: {
-    background: "#ffd166",
+    background: "#ffeb3b",
     marginBottom: 10,
     marginTop: 5,
     '&:hover': {
-      background: "#fca311"
+      background: "#76ff03"
     }
   },
   text: {
-    fontWeight: "bold"
+    ...theme.typography.button,
+    background: "#000000",
+    paddingLeft: ".5rem",
+    paddingRight: ".5rem",
+    textTransform: "capitalize",
+    borderRadius: "1rem"
   },
   accContainer: {
     marginTop: 20,
     width: '95%'
   },
   accHeading: {
-    background: "#ced7db"
   },
   accDetails: {
-    background: "#fff"
+  },
+  expandMoreIcon: {
+    color: "#76ff03",
+    backgroundColor: "#000000"
   }
 }))
 
@@ -87,7 +94,7 @@ const About= () => {
           return(
             <Accordion key={section.name}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
+                expandIcon={<ExpandMoreIcon className={classes.expandMoreIcon}/>}
                 className={classes.accHeading}
                 >
                 <Typography className={classes.text}>{section.name}</Typography>

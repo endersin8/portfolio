@@ -26,14 +26,14 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: 20,
     textTransform: "capitalize",
-    background: "#fff",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    border: 4,
+    background: "#000000"
   },
   fill: {
     height: 80
   },
   navBar: {
-    background: "#ced7db"
   },
   mItem: {
     fontWeight: "bold"
@@ -106,8 +106,8 @@ const Navbar = (props) => {
               </>)
             : (
               <div>
-              <Button className={classes.button} variant="contained" onClick={()=>{handleButtonClick('/')}}>About</Button>
-              <Button className={classes.button} variant="contained" onClick={()=>{handleButtonClick('/projects')}}>Projects</Button>
+              <Button className={classes.button} onClick={()=>{handleButtonClick('/')}}>About</Button>
+              <Button className={classes.button} onClick={()=>{handleButtonClick('/projects')}}>Projects</Button>
               </div>
             )}
 

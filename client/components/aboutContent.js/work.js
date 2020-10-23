@@ -34,25 +34,25 @@ const useStyles = makeStyles((theme)=>({
 const jobs = [
   {
     name: "Currently Unavailable",
-    picture: "/assets/winter-image2.jpeg",
+    picture: "/assets/portfolio-bg.png",
     title: "Software Engineer",
     desc: "Description",
   },
   {
     name: "Sik Gaek",
-    picture: "/assets/winter-image2.jpeg",
+    picture: "/assets/portfolio-bg.png",
     title: "Server (November 2019 - March 2020)",
     desc: "Server (November 2019 - March 2020)",
   },
   {
     name: "BonChon Chicken",
-    picture: "/assets/winter-image2.jpeg",
+    picture: "/assets/portfolio-bg.png",
     title: "Server/Bartender (August 2018 - November 2019)",
     desc: "Description",
   },
   {
     name: "The Basac",
-    picture: "/assets/winter-image2.jpeg",
+    picture: "/assets/portfolio-bg.png",
     title: "Server (May 2018 - July 2019)",
     desc: "Description",
   }
@@ -76,7 +76,7 @@ const Work = (props) => {
                 <Typography className={classes.header} gutterBottom variant="h6" component="h6">
                   {job.name}
                 </Typography>
-                <Typography variant="h8" component="h8">
+                <Typography variant="h6" component="h6">
                   {job.title}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">

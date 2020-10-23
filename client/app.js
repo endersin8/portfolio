@@ -7,9 +7,9 @@ import Typography from '@material-ui/core/Typography'
 const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.down("xs")]: {
-      backgroundImage: `url(${"/assets/winter-image2.jpeg"})`,
+      backgroundImage: `url(${"/assets/portfolio-bg.png"})`,
     },
-    backgroundImage: `url(${"assets/winter-image3.jpg"})`,
+    backgroundImage: `url(${"assets/portfolio-bg.png"})`,
     backgroudRepeat: "repeat-y",
     position:"relative",
     minHeight:"100vh"
@@ -28,9 +28,8 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     ...theme.typography.button,
-    fontFamily:'"Courier New", "Courier", monospace',
     alignSelf:"center",
-    background: "#ced7db",
+    background: "#000000",
     paddingLeft: ".5rem",
     paddingRight: ".5rem",
     textTransform: "capitalize",
