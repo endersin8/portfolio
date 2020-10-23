@@ -1,14 +1,12 @@
+import { Typography } from '@material-ui/core'
 import React from 'react'
 
 const Projects = () => {
   return(
     <div>
-      <h1>ALL PROJECTS</h1>
-      <h1>ALL PROJECTS</h1>
-      <h1>ALL PROJECTS</h1>
-      <h1>ALL PROJECTS</h1>
-      <h1>ALL PROJECTS</h1>
-
+      <Typography variant="h1">
+      Updating Soon!
+      </Typography>
     </div>
   )
 }
