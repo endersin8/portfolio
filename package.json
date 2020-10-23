@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
+    "build": "webpack",
     "build-client-watch": "webpack -w",
-    "build": "npm run build-client-watch & nodemon ./src/app.js"
+    "start-dev": "npm run build-client-watch & nodemon ./src/app.js",
+    "build-deploy": "npm run build & node ./src/app.js"
   },
   "author": "Anderson Yoon",
   "license": "ISC",
