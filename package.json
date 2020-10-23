@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
+    "start": "webpack && webpack-dev-server --mode development",
     "build": "webpack",
     "build-client-watch": "webpack -w",
     "start-dev": "npm run build-client-watch & nodemon ./src/app.js"
@@ -34,6 +34,7 @@
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",
+    "aws-amplify": "^3.3.4",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "react": "^16.14.0",
