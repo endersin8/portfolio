@@ -4,7 +4,6 @@ import {makeStyles} from '@material-ui/core/styles'
 
 const useStyles = makeStyles(()=>({
   motto: {
-    fontFamily: '"Comic Sans MS", "cursive", sans-serif',
     fontWeight: "bold"
   }
 }))

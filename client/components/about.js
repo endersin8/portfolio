@@ -36,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
   },
   accContainer: {
     marginTop: 20,
+    [theme.breakpoints.down("xs")]: {
+      width: "100%"
+    },
     width: '95%'
   },
   accHeading: {

@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    color: "#76ff03",
   },
   title: {
     [theme.breakpoints.down("xs")]: {
@@ -27,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 20,
     textTransform: "capitalize",
     fontWeight: "bold",
-    border: 4,
     background: "#000000"
   },
   fill: {
@@ -36,7 +36,9 @@ const useStyles = makeStyles((theme) => ({
   navBar: {
   },
   mItem: {
-    fontWeight: "bold"
+    fontWeight: "bold",
+    backgroundColor: "#000000",
+    borderRadius: 4
   }
 }));
 

@@ -7,10 +7,11 @@ import Typography from '@material-ui/core/Typography'
 const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.down("xs")]: {
-      backgroundImage: `url(${"/assets/portfolio-bg.png"})`,
+      backgroundImage: `url(${"/assets/port3.png"})`,
     },
-    backgroundImage: `url(${"assets/portfolio-bg.png"})`,
-    backgroudRepeat: "repeat-y",
+    backgroundImage: `url(${"assets/port3.png"})`,
+    backgroudRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
     position:"relative",
     minHeight:"100vh"
   },
