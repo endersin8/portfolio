@@ -5,8 +5,8 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {Typography, IconButton, Accordion, AccordionSummary, AccordionDetails} from '@material-ui/core'
 import EmojiEmotionsTwoToneIcon from '@material-ui/icons/EmojiEmotionsTwoTone';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-
-import {Introduction, Work, Education, Skills, Interests, Contact} from './aboutContent.js'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import {Introduction, Work, Education, Interests} from './aboutContent.js'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
   accHeading: {
   },
   accDetails: {
+    backgroundColor: "#000000"
   },
   expandMoreIcon: {
     color: "#76ff03",
@@ -68,30 +69,19 @@ const useStyles = makeStyles((theme) => ({
 
 const abouts = [
   {
-    name: "Skills",
-    component: Skills
-  },
-  {
     name: "Work Experience",
     component: Work
-  },
-  {
-    name: "Education",
-    component: Education
   },
   {
     name: "Interests",
     component: Interests
   },
-  {
-    name: "Contact",
-    component: Contact
-  }
 ]
 
-const About= () => {
+const About = (props) => {
   const [img, changeImg] = React.useState(false)
   const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
   const classes = useStyles(theme)
   const handleClick = () => {
     changeImg(!img)
@@ -103,10 +93,24 @@ const About= () => {
           <EmojiEmotionsTwoToneIcon/>
         </IconButton>
           <Avatar alt="Anderson Yoon" className={classes.av} src={img ? "assets/60436966.png" : "assets/IMG_0698.jpeg"}/>
+        {isMobile ? '' :
         <div className={classes.intro}>
-          <Introduction/>
-        </div>
+        <Introduction/>
+        </div>}
       <Box className={classes.accContainer}>
+        {isMobile ?
+          <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon className={classes.expandMoreIcon}/>}
+            className={classes.accHeading}
+            >
+            <Typography className={classes.text}>Introduction</Typography>
+          </AccordionSummary>
+          <AccordionDetails className={classes.accDetails}>
+            {<Introduction/>}
+          </AccordionDetails>
+        </Accordion>
+        : ''}
         {abouts.map((section)=>{
           return(
             <Accordion key={section.name}>

@@ -1,14 +1,11 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import {withRouter, Route, Switch} from 'react-router-dom'
-import {Projects, Navbar, About} from './components'
+import {Projects, Navbar, About, Skills, Contact} from './components'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    [theme.breakpoints.down("xs")]: {
-      backgroundImage: `url(${"/assets/port3.png"})`,
-    },
     backgroundImage: `url(${"assets/port3.png"})`,
     backgroudRepeat: "no-repeat",
     backgroundAttachment: "fixed",
@@ -35,20 +32,58 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: ".5rem",
     textTransform: "capitalize",
     borderRadius: "1rem"
+  },
+  content: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    alignSelf: "center"
+  },
+  projectCont: {
+    width: "100%",
+    paddingTop: 66
   }
 }))
 
 const App = () => {
+  const aboutRef = useRef()
+  const projectRef = useRef()
+  const skillRef = useRef()
+  const contactRef = useRef()
+  const refClickObj = {
+    aboutClick() {
+      aboutRef.current.scrollIntoView({ behavior: 'smooth' })
+    },
+    projectClick() {
+      projectRef.current.scrollIntoView({ behavior: 'smooth' })
+    },
+    skillClick() {
+      skillRef.current.scrollIntoView({ behavior: 'smooth' })
+    },
+    contactClick() {
+      contactRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   const theme = useTheme()
   const classes = useStyles(theme)
   return(
-    <div className={classes.root}>
+    <div ref={aboutRef} className={classes.root}>
       <div className={classes.container}>
-        <Navbar/>
-          <Switch>
-            <Route exact path='/' component={About}/>
-            <Route path='/projects' component={Projects}/>
-          </Switch>
+        <Navbar refClick={refClickObj}/>
+          <div className={classes.content}>
+            <About/>
+            <div className={classes.projectCont} ref={projectRef}>
+              <Projects/>
+            </div>
+            <div ref={skillRef}>
+              <Skills/>
+            </div>
+            <div ref={contactRef}>
+              <Contact />
+            </div>
+
+          </div>
       </div>
       <div className={classes.footerContainer}>
         <Typography className={classes.footer}>

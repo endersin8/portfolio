@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -52,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navbar = (props) => {
+  const {refClick} = props
   const {history} = props
   const theme = useTheme()
   const classes = useStyles(theme);
@@ -84,6 +84,24 @@ const Navbar = (props) => {
       menuTitle: 'Projects',
       redirect: '/projects'
     }
+  ]
+
+  const appBarItems = [
+    {
+      appBarTitle: 'About',
+      refClick: refClick.aboutClick
+    },
+    {
+      appBarTitle: 'Projects',
+      refClick: refClick.projectClick
+    },
+    {
+      appBarTitle: 'Skills',
+      refClick: refClick.skillClick
+    },{
+      appBarTitle: 'Contact',
+      refClick: refClick.contactClick
+    },
   ]
 
   return (
@@ -121,11 +139,16 @@ const Navbar = (props) => {
               </>)
             : (
               <div>
-                <IconButton aria-label="home" className={classes.home} size="small">
+                <IconButton
+                  onClick={()=>{handleButtonClick('/')}}
+                  aria-label="home" className={classes.home} size="small">
                   <HomeIcon/>
                 </IconButton>
-                <Button className={classes.button} onClick={()=>{handleButtonClick('/')}}>About</Button>
-                <Button className={classes.button} onClick={()=>{handleButtonClick('/projects')}}>Projects</Button>
+                {appBarItems.map((aBI)=>{
+                  return(
+                    <Button key={aBI.appBarTitle} className={classes.button} onClick={()=>{aBI.refClick()}}>{aBI.appBarTitle}</Button>
+                  )
+                })}
               </div>
             )}
 

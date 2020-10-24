@@ -61,7 +61,7 @@ const Work = (props) => {
     <div className={classes.wrapper}>
       {jobs.map((job)=> {
         return(
-          <Card key={job.name} className={classes.root}>
+          <Card variant="outlined" key={job.name} className={classes.root}>
             <CardActionArea>
               <CardMedia
                 className={classes.media}
