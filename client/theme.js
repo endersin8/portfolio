@@ -1,6 +1,22 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 
 const theme = createMuiTheme({
+  overrides: {
+    MuiIconButton: {
+      root: {
+        '&:hover': {
+          backgroundColor: "rgba(46.3, 100, 1.2, 0.4)"
+        }
+      }
+    },
+    MuiButton: {
+      root: {
+        '&:hover': {
+          backgroundColor: "rgba(46.3, 100, 1.2, 0.4)"
+        }
+      }
+    }
+  },
   palette: {
     common: {
       white: "#76ff03",

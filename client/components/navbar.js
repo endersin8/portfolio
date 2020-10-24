@@ -10,10 +10,19 @@ import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button'
 import {withRouter} from 'react-router-dom'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+import HomeIcon from '@material-ui/icons/Home'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+  home: {
+    backgroundColor: "#000000",
+    color: "#76ff03",
+    marginRight:20,
+    '&:hover': {
+      color: "#76ff03"
+    }
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -64,8 +73,12 @@ const Navbar = (props) => {
 
   const menuItems = [
     {
-      menuTitle: 'About',
+      menuTitle: 'Home',
       redirect: '/'
+    },
+    {
+      menuTitle: 'About',
+      redirect: '/about'
     },
     {
       menuTitle: 'Projects',
@@ -108,8 +121,11 @@ const Navbar = (props) => {
               </>)
             : (
               <div>
-              <Button className={classes.button} onClick={()=>{handleButtonClick('/')}}>About</Button>
-              <Button className={classes.button} onClick={()=>{handleButtonClick('/projects')}}>Projects</Button>
+                <IconButton aria-label="home" className={classes.home} size="small">
+                  <HomeIcon/>
+                </IconButton>
+                <Button className={classes.button} onClick={()=>{handleButtonClick('/')}}>About</Button>
+                <Button className={classes.button} onClick={()=>{handleButtonClick('/projects')}}>Projects</Button>
               </div>
             )}
 

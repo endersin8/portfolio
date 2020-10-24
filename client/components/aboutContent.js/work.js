@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme)=>({
     maxWidth: 345,
   },
   media: {
-    height: 140,
+    height: 200,
   },
 }));
 
@@ -35,26 +35,22 @@ const jobs = [
   {
     name: "Currently Unavailable",
     picture: "/assets/port3.png",
-    title: "Software Engineer",
-    desc: "Description",
+    title: "Software Engineer"
   },
   {
     name: "Sik Gaek",
-    picture: "/assets/port3.png",
-    title: "Server (November 2019 - March 2020)",
-    desc: "Server (November 2019 - March 2020)",
+    picture: "/assets/sikgaek.jpeg",
+    title: "Server (November 2019 - March 2020)"
   },
   {
     name: "BonChon Chicken",
-    picture: "/assets/port3.png",
-    title: "Server/Bartender (August 2018 - November 2019)",
-    desc: "Description",
+    picture: "/assets/bonchon.jpg",
+    title: "Server/Bartender (August 2018 - November 2019)"
   },
   {
     name: "The Basac",
-    picture: "/assets/port3.png",
-    title: "Server (May 2018 - July 2019)",
-    desc: "Description",
+    picture: "/assets/basac.jpg",
+    title: "Server (May 2018 - July 2019)"
   }
 ]
 
@@ -76,11 +72,8 @@ const Work = (props) => {
                 <Typography className={classes.header} gutterBottom variant="h6" component="h6">
                   {job.name}
                 </Typography>
-                <Typography variant="h6" component="h6">
+                <Typography variant="body2">
                   {job.title}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {job.desc}
                 </Typography>
               </CardContent>
             </CardActionArea>

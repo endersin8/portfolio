@@ -6,22 +6,37 @@ import {Typography, IconButton, Accordion, AccordionSummary, AccordionDetails} f
 import EmojiEmotionsTwoToneIcon from '@material-ui/icons/EmojiEmotionsTwoTone';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
-import {Biography, Work, Education, Skills, Interests, Contact} from './aboutContent.js'
+import {Introduction, Work, Education, Skills, Interests, Contact} from './aboutContent.js'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    alignSelf: "center"
+  },
+  intro: {
+    marginTop: 10,
+    width: "90%",
+    margin:20
+  },
+  hello: {
+    ...theme.typography.button,
+    background: "#000000",
+    textTransform: "capitalize",
+    borderRadius: "1rem",
+    fontSize: 20,
+    margin:20,
+    padding: 8,
   },
   av: {
-    width: theme.spacing(20),
-    height: theme.spacing(20)
+    margin:20,
+    width: theme.spacing(25),
+    height: theme.spacing(25)
   },
   smile: {
     background: "#ffeb3b",
-    marginBottom: 10,
-    marginTop: 5,
+    margin: 13,
     '&:hover': {
       background: "#76ff03"
     }
@@ -39,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       width: "100%"
     },
-    width: '95%'
+    width: '90%'
   },
   accHeading: {
   },
@@ -52,10 +67,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const abouts = [
-  {
-    name: "Biography",
-    component: Biography
-  },
   {
     name: "Skills",
     component: Skills
@@ -87,11 +98,14 @@ const About= () => {
   }
   return(
     <Box className={classes.root}>
-      <Typography className={classes.text}>Hello World!</Typography>
-      <IconButton onClick={handleClick} className={classes.smile}>
-        <EmojiEmotionsTwoToneIcon/>
-      </IconButton>
-      <Avatar alt="Anderson Yoon" className={classes.av} src={img ? "assets/60436966.png" : "assets/IMG_0698.jpeg"}/>
+      <Typography className={classes.hello}>Hello World!</Typography>
+        <IconButton onClick={handleClick} className={classes.smile}>
+          <EmojiEmotionsTwoToneIcon/>
+        </IconButton>
+          <Avatar alt="Anderson Yoon" className={classes.av} src={img ? "assets/60436966.png" : "assets/IMG_0698.jpeg"}/>
+        <div className={classes.intro}>
+          <Introduction/>
+        </div>
       <Box className={classes.accContainer}>
         {abouts.map((section)=>{
           return(
