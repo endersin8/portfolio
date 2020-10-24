@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   projectCont: {
     width: "100%",
+    height: 1000,
     paddingTop: 66
   }
 }))
