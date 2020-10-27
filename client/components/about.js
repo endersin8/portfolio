@@ -6,7 +6,8 @@ import {Typography, IconButton, Accordion, AccordionSummary, AccordionDetails} f
 import EmojiEmotionsTwoToneIcon from '@material-ui/icons/EmojiEmotionsTwoTone';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import {Introduction, Work, Education, Interests} from './aboutContent.js'
+import {Introduction, Work, Education, Interests} from './Content/index.js'
+import Typical from 'react-typical'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,13 +22,13 @@ const useStyles = makeStyles((theme) => ({
     margin:20
   },
   hello: {
-    ...theme.typography.button,
-    background: "#000000",
-    textTransform: "capitalize",
+    // ...theme.typography.button,
+    textTransform: "initial",
     borderRadius: "1rem",
     fontSize: 20,
     margin:20,
     padding: 8,
+    fontWeight: "bold"
   },
   av: {
     margin:20,
@@ -43,18 +44,19 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     ...theme.typography.button,
-    background: "#000000",
+    backgroundColor: "#000000",
     paddingLeft: ".5rem",
     paddingRight: ".5rem",
     textTransform: "capitalize",
     borderRadius: "1rem"
+
   },
   accContainer: {
     marginTop: 20,
     [theme.breakpoints.down("xs")]: {
       width: "100%"
     },
-    width: '90%'
+    width: '100%'
   },
   accHeading: {
   },
@@ -73,6 +75,10 @@ const abouts = [
     component: Work
   },
   {
+    name: "Education",
+    component: Education
+  },
+  {
     name: "Interests",
     component: Interests
   },
@@ -88,7 +94,14 @@ const About = (props) => {
   }
   return(
     <Box className={classes.root}>
-      <Typography className={classes.hello}>Hello World!</Typography>
+        <Typical
+          className={classes.hello}
+          loop={Infinity}
+          steps={[
+            'Hello World!', 2000,
+            'Welcome to my website!', 2000
+          ]}
+        />
         <IconButton onClick={handleClick} className={classes.smile}>
           <EmojiEmotionsTwoToneIcon/>
         </IconButton>

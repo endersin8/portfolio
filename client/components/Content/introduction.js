@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme)=>({
   },
   text: {
     ...theme.typography.button,
-    background: "#000000",
     paddingLeft: ".5rem",
     paddingRight: ".5rem",
     textTransform: "initial",

@@ -33,7 +33,7 @@ const theme = createMuiTheme({
     },
     background: {
       paper: "#212121",
-      default: "#212121"
+      default: "rgba(0,0,0,1)"
     },
     action: {
       hover: "#484848"
@@ -41,7 +41,7 @@ const theme = createMuiTheme({
     text: {
       primary: "#76ff03",
       secondary: "#32cb00"
-    }
+    },
   },
   typography: {
     fontFamily: '"Courier New", "Courier", monospace',

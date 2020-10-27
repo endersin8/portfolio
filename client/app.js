@@ -6,9 +6,6 @@ import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundImage: `url(${"assets/port3.png"})`,
-    backgroudRepeat: "no-repeat",
-    backgroundAttachment: "fixed",
     position:"relative",
     minHeight:"100vh"
   },
@@ -42,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   projectCont: {
     width: "100%",
     height: 1000,
-    paddingTop: 66
+    paddingTop: 64
   }
 }))
 
