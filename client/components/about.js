@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     margin:20
   },
   hello: {
-    // ...theme.typography.button,
     textTransform: "initial",
     borderRadius: "1rem",
     fontSize: 20,
@@ -48,7 +47,8 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: ".5rem",
     paddingRight: ".5rem",
     textTransform: "capitalize",
-    borderRadius: "1rem"
+    borderRadius: "1rem",
+    fontWeight: "bold"
 
   },
   accContainer: {
@@ -59,9 +59,10 @@ const useStyles = makeStyles((theme) => ({
     width: '100%'
   },
   accHeading: {
+    backgroundColor: "#212121"
   },
   accDetails: {
-    backgroundColor: "#000000"
+    backgroundColor: "rgba(0,0,0,0)"
   },
   expandMoreIcon: {
     color: "#76ff03",
