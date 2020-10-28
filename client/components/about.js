@@ -22,9 +22,8 @@ const useStyles = makeStyles((theme) => ({
     margin:20
   },
   hello: {
-    textTransform: "initial",
     borderRadius: "1rem",
-    fontSize: 20,
+    fontSize: 22,
     margin:20,
     padding: 8,
     fontWeight: "bold"
@@ -99,8 +98,8 @@ const About = (props) => {
           className={classes.hello}
           loop={Infinity}
           steps={[
-            'Hello World!', 2000,
-            'Welcome to my website!', 2000
+            'Hello World!', 4000,
+            'Welcome to my website!', 4000
           ]}
         />
         <IconButton onClick={handleClick} className={classes.smile}>

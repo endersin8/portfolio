@@ -1,5 +1,13 @@
 export const projectArr = [
   {
+    name: "Weather-Or-Not",
+    roleDate: "(React-Native Developer from October 2020 to November 2020)",
+    desc: "A handy mobile application for weather notifications!",
+    stack: 'technologies used',
+    image: "/assets/basac.jpg",
+    projectUrl: "adding url soon"
+  },
+  {
     name: "Kitchen-Kevin",
     roleDate: "(Fullstack Developer from August 2020 to September 2020)",
     desc: "A voice recognition application for recipe searching and reading.",

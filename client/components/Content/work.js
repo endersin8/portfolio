@@ -34,22 +34,22 @@ const useStyles = makeStyles((theme)=>({
 const jobs = [
   {
     name: "Currently Unavailable",
-    picture: "/assets/port3.png",
+    picture: "/assets/work/port3.png",
     title: "Software Engineer"
   },
   {
     name: "Sik Gaek",
-    picture: "/assets/sikgaek.jpeg",
+    picture: "/assets/work/sikgaek.jpeg",
     title: "Server (November 2019 - March 2020)"
   },
   {
     name: "BonChon Chicken",
-    picture: "/assets/bonchon.jpg",
+    picture: "/assets/work/bonchon.jpg",
     title: "Server/Bartender (August 2018 - November 2019)"
   },
   {
     name: "The Basac",
-    picture: "/assets/basac.jpg",
+    picture: "/assets/work/basac.jpg",
     title: "Server (May 2018 - July 2019)"
   }
 ]
