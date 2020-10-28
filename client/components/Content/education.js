@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const Education = () => {
   const theme = useTheme()
   const classes = useStyles(theme)
-  const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
   return(
     <Paper className={classes.root}>
       <Box className={classes.content}>
