@@ -27,8 +27,9 @@ const useStyles = makeStyles((theme) => ({
     background: "#000000",
     paddingLeft: ".5rem",
     paddingRight: ".5rem",
-    textTransform: "capitalize",
-    borderRadius: "1rem"
+    textTransform: "initial",
+    borderRadius: "1rem",
+    fontWeight: 'bold'
   },
   content: {
     display: "flex",
@@ -85,7 +86,7 @@ const App = () => {
       </div>
       <div className={classes.footerContainer}>
         <Typography className={classes.footer}>
-          Created By Anderson Yoon
+          Created by Anderson Yoon
         </Typography>
       </div>
     </div>

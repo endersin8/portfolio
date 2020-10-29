@@ -94,6 +94,7 @@ const About = (props) => {
         <Typical
           className={classes.hello}
           loop={Infinity}
+          wrapper='b'
           steps={[
             'Hello World!', 4000,
             'Welcome to my website!', 4000
