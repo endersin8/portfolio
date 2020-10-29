@@ -4,16 +4,22 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    width: '100%'
   },
   gridList: {
     flexWrap: 'nowrap',
+    width: '100%',
     transform: 'translateZ(0)'
+  },
+  gridTitle: {
+    fontWeight: 'bold'
   }
 }))
 
@@ -39,15 +45,17 @@ const interestsArr = [
 const Interests = () => {
   const theme = useTheme()
   const classes = useStyles(theme)
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
   return(
     <Paper className={classes.root}>
-      <GridList className={classes.gridList} cols={2}>
+      <GridList cellHeight={isMobile ? 300 : 400} className={classes.gridList} cols={isMobile ? .5 : 2.5}>
         {interestsArr.map((element)=>{
           return(
             <GridListTile key={element.name}>
               <img className={classes.media} src={element.image} alt={element.name} />
               <GridListTileBar
                 title={element.name}
+                className={classes.gridTitle}
               />
             </GridListTile>
           )

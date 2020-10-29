@@ -11,20 +11,19 @@ const useStyles = makeStyles((theme)=>({
   wrapper: {
     display:"flex",
     justifyContent:"space-evenly",
-    width: "100%",
     flexWrap:"wrap"
   },
   header:{
     fontWeight: "bold"
   },
   root: {
-    [theme.breakpoints.down("xs")]: {
-      minWidth: 320,
-      maxWidth:320,
-    },
+    // [theme.breakpoints.down("xs")]: {
+    //   minWidth: 320,
+    //   maxWidth:320,
+    // },
     margin:"1rem",
-    minWidth:345,
-    maxWidth: 345,
+    // minWidth:345,
+    // maxWidth: 345,
   },
   media: {
     height: 200,

@@ -52,16 +52,13 @@ const useStyles = makeStyles((theme) => ({
   },
   accContainer: {
     marginTop: 20,
-    [theme.breakpoints.down("xs")]: {
-      width: "100%"
-    },
     width: '100%'
   },
   accHeading: {
     backgroundColor: "#212121"
   },
   accDetails: {
-    backgroundColor: "rgba(0,0,0,0)"
+    backgroundColor: "rgba(0,0,0,0)",
   },
   expandMoreIcon: {
     color: "#76ff03",
