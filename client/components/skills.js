@@ -1,32 +1,137 @@
 import React from 'react'
 import {Paper, Typography} from '@material-ui/core'
-import {makeStyles} from '@material-ui/core/styles'
+import {makeStyles, useTheme} from '@material-ui/core/styles'
 import {skillsArr} from './Content/skills'
+import TextLoop from 'react-text-loop'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import FolderIcon from '@material-ui/icons/Folder'
+import Typical from 'react-typical'
+import StarRateRoundedIcon from '@material-ui/icons/StarRateRounded';
 
-const useStyles = makeStyles(()=>({
-  header: {
+const useStyles = makeStyles((theme)=>({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    paddingTop: '5vh'
+  },
+  headerText: {
     fontWeight: "bold"
+  },
+  headerCont: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  divider: {
+    backgroundColor: "#76ff03",
+    height: "1px",
+    width: '90%',
+    margin: '4vh'
+  },
+  listContainer: {
+    marginTop: '4vh',
+    overflow: 'auto',
+    maxHeight: '50vh',
+    width: "90%"
+  },
+  listMod: {
+    padding: 0
+  },
+  textMod: {
+    fontSize: '20px',
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 16
+    },
+    fontWeight: 'bold',
+    paddingRight: '1vw'
+  },
+  profHeader: {
+    fontWeight: 'bold',
+  },
+  profIcon: {
+    color: '#ff4081',
+  },
+  learnIcon: {
+    color: '#18ffff'
+  },
+  socialSkill: {
+    fontWeight: 'bold',
+    marginTop: '5vh',
+    fontSize: '22px',
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 18
+    },
+  },
+  profHeaderCont: {
+    display: 'flex',
+    justifyContent: 'center',
   }
 }))
 
 const Skills = () => {
-  const classes = useStyles()
+  const theme=useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
+  const classes = useStyles(theme)
+  const headerSize = isMobile ? 'h6' : 'h5'
   return(
-    <Paper>
-      <Typography variant="h6" className={classes.header}>
-        Technical Skills
-      </Typography>
-      {skillsArr.map((skill) => {
-        return(
-          <Typography key={skill.name}>{skill.name}</Typography>
-        )
-      })}
-      <Typography variant="h6" className={classes.header}>
-        Interpersonal Skills
-      </Typography>
-      <Typography variant="body1" >
-        Quick Learner, Open Minded, Hard Worker, Active Listener, Flexible, Motivated, Patient, Compassionate, Visualizer
-      </Typography>
+    <Paper className={classes.root}>
+      <Paper className={classes.headerCont}>
+        <Typography variant={headerSize} className={classes.headerText}>I know how to work with...</Typography>
+        <TextLoop mask={true} fade={false}>
+          {skillsArr.map((skill)=> {
+            return(
+              <Typography variant={headerSize} className={classes.headerText} key={`${skill.name}0`}>{skill.name}</Typography>
+            )
+          })}
+        </TextLoop>
+      </Paper>
+      <div className={classes.divider}/>
+      <div className={classes.profHeaderCont}>
+        <Typography className={classes.profHeader}>Proficiency ?</Typography>
+        <StarRateRoundedIcon className={classes.profIcon}/>
+        <Typography className={classes.profHeader}> : </Typography>
+        <StarRateRoundedIcon className={classes.learnIcon}/>
+      </div>
+      <Paper className={classes.listContainer}>
+          <List className={classes.listMod}>
+            {skillsArr.map((skill) => {
+              return(
+                <ListItem key={`${skill.name}1`}>
+                    <ListItemAvatar>
+                      <Avatar alt={skill.name} src={skill.image}>
+                        {skill.image ? '' : <FolderIcon />}
+                      </Avatar>
+                    </ListItemAvatar>
+                    <Typography className={classes.textMod}>{skill.name}</Typography>
+                        {skill.proficiency ?
+                        <StarRateRoundedIcon className={classes.profIcon}/> :
+                        <StarRateRoundedIcon className={classes.learnIcon}/>}
+
+                </ListItem>
+              )
+            })}
+          </List>
+      </Paper>
+        <Typical
+          className={classes.socialSkill}
+          loop={Infinity}
+          steps={[
+            "I am a Quick Learner",3000,
+            "I am Open-Minded",3000,
+            "I am a Hard Worker",3000,
+            "I am an Active Listener",3000,
+            "I am Flexible",3000,
+            "I am Motivated",3000,
+            "I am Patient",3000,
+            "I am Compassionate",3000,
+            "I am a Visualizer",3000,
+          ]}
+        />
     </Paper>
   )
 }

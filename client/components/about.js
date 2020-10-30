@@ -26,7 +26,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 22,
     margin:20,
     padding: 8,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 18
+    }
   },
   av: {
     margin:20,
@@ -75,10 +78,10 @@ const abouts = [
     name: "Education",
     component: Education
   },
-  {
-    name: "Interests",
-    component: Interests
-  },
+  // {
+  //   name: "Interests",
+  //   component: Interests
+  // },
 ]
 
 const About = (props) => {
@@ -97,7 +100,8 @@ const About = (props) => {
           wrapper='b'
           steps={[
             'Hello World!', 4000,
-            'Welcome to my website!', 4000
+            'Welcome to my website!', 4000,
+            'Still a work in progress', 4000
           ]}
         />
         <IconButton onClick={handleClick} className={classes.smile}>

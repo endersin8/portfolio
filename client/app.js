@@ -39,7 +39,14 @@ const useStyles = makeStyles((theme) => ({
   },
   projectCont: {
     width: "100%",
-    height: "100vh",
+    paddingTop: 64
+  },
+  skillsCont: {
+    width: "100%",
+    paddingTop: 64
+  },
+  contactCont: {
+    width: "100%",
     paddingTop: 64
   }
 }))
@@ -75,10 +82,10 @@ const App = () => {
             <div className={classes.projectCont} ref={projectRef}>
               <Projects/>
             </div>
-            <div ref={skillRef}>
+            <div ref={skillRef} className={classes.skillsCont}>
               <Skills/>
             </div>
-            <div ref={contactRef}>
+            <div ref={contactRef} className={classes.contactCont}>
               <Contact />
             </div>
 

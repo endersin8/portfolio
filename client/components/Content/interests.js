@@ -10,8 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    width: '100%'
+    width: '100%',
   },
   gridList: {
     flexWrap: 'nowrap',

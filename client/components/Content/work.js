@@ -10,7 +10,8 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme)=>({
   wrapper: {
     display:"flex",
-    justifyContent:"space-evenly",
+    width: '100%',
+    justifyContent:"space-around",
     flexWrap:"wrap"
   },
   header:{

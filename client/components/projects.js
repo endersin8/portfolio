@@ -11,9 +11,11 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 
 const useStyles = makeStyles((theme) => ({
+  carousel: {
+
+  },
   root: {
     display: 'flex',
-    backgroundColor: "#111518"
   },
   media: {
     height: 500,
@@ -35,7 +37,7 @@ const Projects = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
 
   return(
-    <Carousel animation="slide" interval={8000} autoPlay={false}
+    <Carousel className={classes.carousel} animation="slide" interval={8000} autoPlay={false}
     activeIndicatorProps={{style: {color:"#76ff03"}}}
     navButtonsAlwaysVisible={!isMobile}>
       {projectArr.map((project)=>{
