@@ -3,6 +3,7 @@ import {withRouter, Route, Switch} from 'react-router-dom'
 import {Projects, Navbar, About, Skills, Contact} from './components'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import Typical from 'react-typical'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,16 +39,27 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: "center"
   },
   projectCont: {
+    display: 'flex',
+    flexDirection: 'column',
     width: "100%",
-    paddingTop: 64
+    paddingTop: '6.4vh',
+    alignItems: 'center'
+  },
+  projectHeader: {
+    fontWeight: 'bold',
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 20
+    },
+    marginBottom: 0,
+    fontSize: 32
   },
   skillsCont: {
     width: "100%",
-    paddingTop: 64
+    paddingTop: '6.4vh'
   },
   contactCont: {
     width: "100%",
-    paddingTop: 64
+    paddingTop: '6.4vh'
   }
 }))
 
@@ -80,6 +92,15 @@ const App = () => {
           <div className={classes.content}>
             <About/>
             <div className={classes.projectCont} ref={projectRef}>
+            <Typical
+              className={classes.projectHeader}
+              loop={Infinity}
+              steps={[
+                "Projects",3000,
+                "Here are my Projects!",3000,
+                "More Coming Soon!",3000,
+                ]}
+        />
               <Projects/>
             </div>
             <div ref={skillRef} className={classes.skillsCont}>
@@ -93,7 +114,7 @@ const App = () => {
       </div>
       <div className={classes.footerContainer}>
         <Typography className={classes.footer}>
-          Created by Anderson Yoon
+          Developed by Anderson Yoon
         </Typography>
       </div>
     </div>

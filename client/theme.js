@@ -15,6 +15,11 @@ const theme = createMuiTheme({
           backgroundColor: "rgba(46.3, 100, 1.2, 0.4)"
         }
       }
+    },
+    MuiCardMedia: {
+      root: {
+        borderRadius: '1rem'
+      }
     }
   },
   palette: {

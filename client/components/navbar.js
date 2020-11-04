@@ -45,8 +45,10 @@ const useStyles = makeStyles((theme) => ({
   },
   mItem: {
     fontWeight: "bold",
-    backgroundColor: "#000000",
-    borderRadius: 4
+    backgroundColor: "#212121",
+    '&:hover': {
+      backgroundColor: "rgba(46.3, 100, 1.2)",
+    }
   }
 }));
 
@@ -62,10 +64,17 @@ const Navbar = (props) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClick = (redirect) => {
-    history.push(redirect)
-    setAnchorEl(null);
-  };
+
+  const handleMenuClick = (ref) => {
+    promiseTest().then(()=>{ref()})
+  }
+
+  const promiseTest = () => {
+    return new Promise((resolve, reject) => {
+      setAnchorEl(null)
+      resolve()
+    })
+  }
 
   const handleButtonClick = (redirect) => {
     history.push(redirect)
@@ -73,16 +82,20 @@ const Navbar = (props) => {
 
   const menuItems = [
     {
-      menuTitle: 'Home',
-      redirect: '/'
-    },
-    {
       menuTitle: 'About',
-      redirect: '/about'
+      refClick: refClick.aboutClick
     },
     {
       menuTitle: 'Projects',
-      redirect: '/projects'
+      refClick: refClick.projectClick
+    },
+    {
+      menuTitle: 'Skills',
+      refClick: refClick.skillClick
+    },
+    {
+      menuTitle: 'Contact',
+      refClick: refClick.contactClick
     }
   ]
 
@@ -130,9 +143,8 @@ const Navbar = (props) => {
                     onClose={() => setAnchorEl(null)}
                   >
                     {menuItems.map(menuItem => {
-                      const {menuTitle, redirect} = menuItem
                       return (
-                        <MenuItem key={menuTitle} className={classes.mItem} onClick={() => {handleMenuClick(redirect)}}>{menuTitle}</MenuItem>
+                        <MenuItem key={menuItem.menuTitle} className={classes.mItem} onClick={() => {handleMenuClick(menuItem.refClick)}}>{menuItem.menuTitle}</MenuItem>
                       )
                     })}
                   </Menu>

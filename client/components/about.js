@@ -14,31 +14,31 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    alignSelf: "center"
+    alignSelf: "center",
+    minHeight: '85vh'
   },
   intro: {
     marginTop: 10,
     width: "90%",
-    margin:20
+    margin: '2vh'
   },
   hello: {
     borderRadius: "1rem",
     fontSize: 22,
-    margin:20,
-    padding: 8,
+    margin:'2vh',
     fontWeight: "bold",
     [theme.breakpoints.down("xs")]: {
       fontSize: 18
     }
   },
   av: {
-    margin:20,
+    margin:'2vh',
     width: theme.spacing(25),
     height: theme.spacing(25)
   },
   smile: {
     background: "#ffeb3b",
-    margin: 13,
+    margin: '1.3vh',
     '&:hover': {
       background: "#76ff03"
     }
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
   accContainer: {
-    marginTop: 20,
+    marginTop: '2vh',
     width: '100%'
   },
   accHeading: {
