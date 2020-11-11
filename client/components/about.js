@@ -96,12 +96,11 @@ const About = (props) => {
     <Box className={classes.root}>
         <Typical
           className={classes.hello}
-          loop={Infinity}
+          loop={1}
           wrapper='b'
           steps={[
             'Hello World!', 4000,
-            'Welcome to my website!', 4000,
-            'Still a work in progress', 4000
+            'Welcome to my website!', 4000
           ]}
         />
         <IconButton onClick={handleClick} className={classes.smile}>

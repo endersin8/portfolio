@@ -94,11 +94,10 @@ const App = () => {
             <div className={classes.projectCont} ref={projectRef}>
             <Typical
               className={classes.projectHeader}
-              loop={Infinity}
+              loop={1}
               steps={[
                 "Projects",3000,
-                "Here are my Projects!",3000,
-                "More Coming Soon!",3000,
+                "Here are my Projects!",3000
                 ]}
         />
               <Projects/>

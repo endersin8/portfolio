@@ -33,13 +33,13 @@ const Education = () => {
       <Box className={classes.content}>
         <Avatar alt="FSA Logo" src={"assets/edu/fsaLogo.jpg"}/>
         <Typography className={classes.text}>Fullstack Academy </Typography>
-        {isMobile ? '' : <Typical className={classes.text} loop={Infinity}
+        {isMobile ? '' : <Typical className={classes.text} loop={1}
         steps={["- Coding Bootcamp (May 2020 - September 2020)", 6000, "- Graduated with a Certificate of Completion for the Software Engineering Immersive", 6000]}/>}
       </Box>
       <Box className={classes.content}>
         <Avatar alt="BxSci Logo" src={"assets/edu/bxSciLogo.jpg"}/>
         <Typography className={classes.text}>Bronx High School Of Science </Typography>
-        {isMobile ? '' : <Typical className={classes.text} loop={Infinity}
+        {isMobile ? '' : <Typical className={classes.text} loop={1}
         steps={["- High School (August 2009 - August 2013)", 6000, "- Graduated with a Regents Advanced Designation High School Diploma", 6000]}/>}
       </Box>
     </Paper>
