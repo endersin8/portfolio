@@ -18,7 +18,48 @@
   text-align: center;
 }
 
+.crawl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align:center;
+  position: relative;
+  top : -20%;
+  transform-origin: 30% 80%;
+  animation: crawl 80s linear;
+  animation-iteration-count: infinite
+}
 
+@media (max-width: 768px) {
+  .crawl {
+    animation: mobileCrawl 80s linear;
+    animation-iteration-count: 1
+  }
+}
+
+@keyframes mobileCrawl {
+  0% {
+    top: -120%;
+    transform: rotateX(20deg) translateZ(0px)
+
+  }
+  100% {
+    top: -3000px;
+    transform: rotateX(30deg) translateZ(-300px);
+  }
+}
+
+@keyframes crawl {
+  0% {
+    top: -35%;
+    transform: rotateX(20deg) translateZ(0px)
+
+  }
+  100% {
+    top: -2000px;
+    transform: rotateX(50deg) translateZ(-600px);
+  }
+}
 
 @keyframes move-twink-back {
   from {background-position:0 0;}
@@ -43,7 +84,7 @@ body {
 
 #app {
   position: absolute;
-  z-index:1
+  z-index:2
 }
 
 .twinkling{

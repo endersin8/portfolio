@@ -1,12 +1,9 @@
 import React from 'react'
-import {Paper, Typography} from '@material-ui/core'
+import {Paper, Typography, Box} from '@material-ui/core'
 import {makeStyles, useTheme} from '@material-ui/core/styles'
 import {skillsArr} from './Content/skills'
 import TextLoop from 'react-text-loop'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import FolderIcon from '@material-ui/icons/Folder'
 import Typical from 'react-typical'
@@ -34,13 +31,15 @@ const useStyles = makeStyles((theme)=>({
     margin: '4vh'
   },
   listContainer: {
-    marginTop: '4vh',
-    overflow: 'auto',
-    maxHeight: '50vh',
+    display:'flex',
+    flexWrap:'wrap',
+    justifyContent: 'center',
     width: "90%"
   },
-  listMod: {
-    padding: 0
+  skillBox: {
+    display: 'flex',
+    alignItems: 'center',
+    margin: '4vh'
   },
   textMod: {
     fontSize: '20px',
@@ -48,7 +47,7 @@ const useStyles = makeStyles((theme)=>({
       fontSize: 16
     },
     fontWeight: 'bold',
-    paddingRight: '1vw'
+    marginLeft: '1vh'
   },
   profHeader: {
     fontWeight: 'bold',
@@ -61,7 +60,6 @@ const useStyles = makeStyles((theme)=>({
   },
   socialSkill: {
     fontWeight: 'bold',
-    marginTop: '5vh',
     fontSize: '22px',
     [theme.breakpoints.down("xs")]: {
       fontSize: 18
@@ -98,25 +96,23 @@ const Skills = () => {
         <StarRateRoundedIcon className={classes.learnIcon}/>
       </div>
       <Paper className={classes.listContainer}>
-          <List className={classes.listMod}>
             {skillsArr.map((skill) => {
               return(
-                <ListItem key={`${skill.name}1`}>
-                    <ListItemAvatar>
+                <Box key={`${skill.name}1`} className={classes.skillBox}>
+
                       <Avatar alt={skill.name} src={skill.image}>
                         {skill.image ? '' : <FolderIcon />}
                       </Avatar>
-                    </ListItemAvatar>
+
                     <Typography className={classes.textMod}>{skill.name}</Typography>
                         {skill.proficiency ?
                         <StarRateRoundedIcon className={classes.profIcon}/> :
                         <StarRateRoundedIcon className={classes.learnIcon}/>}
-
-                </ListItem>
+                </Box>
               )
             })}
-          </List>
       </Paper>
+      <div className={classes.divider}/>
         <Typical
           className={classes.socialSkill}
           loop={Infinity}

@@ -19,8 +19,24 @@ const useStyles = makeStyles((theme) => ({
   },
   intro: {
     marginTop: 10,
-    width: "90%",
-    margin: '2vh'
+    width: "100%",
+    height: '30vh',
+    margin: '2vh',
+    overflow:'hidden',
+    [theme.breakpoints.down("xs")]: {
+      height: '15vh',
+    }
+  },
+  fade: {
+    position:'relative',
+    width: '100%',
+    top: '-20%',
+    height: '30vh',
+    backgroundImage: 'linear-gradient(0deg, transparent, #000 75%)',
+    [theme.breakpoints.down("xs")]: {
+      height: '15vh'
+    },
+    zIndex: 1
   },
   hello: {
     borderRadius: "1rem",
@@ -107,24 +123,12 @@ const About = (props) => {
           <EmojiEmotionsTwoToneIcon/>
         </IconButton>
           <Avatar alt="Anderson Yoon" className={classes.av} src={img ? "assets/60436966.png" : "assets/IMG_0698.jpeg"}/>
-        {isMobile ? '' :
+
         <div className={classes.intro}>
-        <Introduction/>
-        </div>}
+          <div className={classes.fade}></div>
+          <Introduction/>
+        </div>
       <Box className={classes.accContainer}>
-        {isMobile ?
-          <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon className={classes.expandMoreIcon}/>}
-            className={classes.accHeading}
-            >
-            <Typography className={classes.text}>Introduction</Typography>
-          </AccordionSummary>
-          <AccordionDetails className={classes.accDetails}>
-            {<Introduction/>}
-          </AccordionDetails>
-        </Accordion>
-        : ''}
         {abouts.map((section)=>{
           return(
             <Accordion key={section.name}>
