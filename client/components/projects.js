@@ -108,6 +108,7 @@ const Projects = () => {
     <Carousel className={classes.carousel} animation="slide" interval={8000} autoPlay={false}
     next={()=>{flipStatus ? handleFlip() : ''}}
     prev={()=>{flipStatus ? handleFlip() : ''}}
+    navButtonsAlwaysVisible={true}
     activeIndicatorProps={{style: {color:"#76ff03"}}}>
       {projectArr.map((project)=>{
         return(

@@ -1,6 +1,7 @@
 node_modules
 bundle.js
 bundle.js.map
+src/emailConfig.js
 
 #amplify
 amplify/\#current-cloud-backend

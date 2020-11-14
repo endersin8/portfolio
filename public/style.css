@@ -24,7 +24,7 @@
   align-items: center;
   text-align:center;
   position: relative;
-  top : -20%;
+  top : 0%;
   transform-origin: 30% 80%;
   animation: crawl 80s linear;
   animation-iteration-count: infinite

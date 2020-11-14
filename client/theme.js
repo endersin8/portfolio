@@ -2,6 +2,36 @@ import { createMuiTheme } from '@material-ui/core/styles'
 
 const theme = createMuiTheme({
   overrides: {
+    MuiTextField: {
+      root: {
+        marginTop: '5%',
+        '& label.Mui-focused': {
+          color: "#76ff03",
+        },
+        '& input:valid + fieldset': {
+          borderColor: "#76ff03",
+          borderWidth: 2,
+        },
+        '& input:invalid + fieldset': {
+          borderColor: "#76ff03",
+          borderWidth: 2,
+        },
+        '& .MuiOutlinedInput-root': {
+          '& fieldset': {
+            borderColor: "#76ff03",
+            borderWidth: 2,
+          },
+          '&:hover fieldset': {
+            borderColor: '#ff4081',
+            borderWidth: 2,
+          },
+          '&.Mui-focused fieldset': {
+            borderColor: '#ff4081',
+            borderWidth: 2,
+          },
+        },
+      }
+    },
     MuiIconButton: {
       root: {
         '&:hover': {
@@ -50,6 +80,7 @@ const theme = createMuiTheme({
   },
   typography: {
     fontFamily: '"Courier New", "Courier", monospace',
+    fontWeightRegular: 700,
     button: {
       fontFamily: '"Courier New", "Courier", monospace',
       fontColor: "#76ff03",
