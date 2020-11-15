@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme)=>({
 const jobs = [
   {
     name: "Currently Unavailable",
-    picture: "/assets/work/port3.png",
+    picture: "/assets/work/basac.jpg",
     title: "Software Engineer"
   },
   {

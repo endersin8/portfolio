@@ -99,7 +99,11 @@ const Contact = () => {
         email: email,
         message: message
       }
-      axios.post('/sendMessage', data).then((res)=>{
+      axios({
+        method: "POST",
+        url: "https://6pjesdr0hl.execute-api.us-east-1.amazonaws.com/dev/sendMessage",
+        data: data
+      }).then((res) => {
         if (res.data.msg === 'success') {
           alert(`Message sent successfully!. Thank you, ${name}!`)
           document.getElementById('contactForm').reset()
