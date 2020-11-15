@@ -56,9 +56,6 @@ const useStyles = makeStyles((theme) => ({
 const Contact = () => {
   const theme=useTheme()
   const classes=useStyles(theme)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
   const [nameError, setNameError] = useState(false)
   const [emailError, setEmailError] = useState(false)
   const [messageError, setMessageError] = useState(false)
@@ -70,60 +67,48 @@ const Contact = () => {
     window.open(link)
   }
 
-  const handleFormChange = (e) => {
-    if (e.target.id === 'name') {
-      setName(e.target.value)
-    }
-    if (e.target.id === 'email') {
-      setEmail(e.target.value)
-    }
-    if (e.target.id === 'message') {
-      setMessage(e.target.value)
-    }
-  }
 
   const handleFormSubmit = (e) => {
+    e.preventDefault()
     let name = document.getElementById('name').value
     let email = document.getElementById('email').value;
     let message = document.getElementById('message').value
-    e.preventDefault()
+    let emailTest = email.includes('.com')
+    let emailTestTwo = email.includes('@')
     if (name === '') {
       setNameError(true)
     }
-    if (email === '') {
+    if (!emailTest || !emailTestTwo) {
       setEmailError(true)
     }
-    if (message.length <= 0 ) {
+    if (message.length < 20 ) {
       setMessageError(true)
     }
     if (name.length > 0) {
       setNameError(false)
     }
-    if (email.includes('@')) {
+    if (emailTest && emailTestTwo) {
       setEmailError(false)
     }
-    if (message.length > 0) {
+    if (message.length >= 20) {
       setMessageError(false)
     }
-    if (name.length > 0 && email.includes('@') && message.length > 0) {
+    if (name.length > 0 && emailTest && emailTestTwo && message.length >= 20) {
       const data = {
         name: name,
         email: email,
         message: message
       }
-      axios.post('/sendMessage', data)
+      axios.post('/sendMessage', data).then((res)=>{
+        if (res.data.msg === 'success') {
+          alert(`Message sent successfully!. Thank you, ${name}!`)
+          document.getElementById('contactForm').reset()
+        }
+        else if (res.data.msg === 'fail') {
+          alert(`Something went wrong and message failed to send. Sorry about that, ${name}`)
+        }
+      })
     }
-
-    // else {
-    //   axios({
-    //     method: "POST",
-    //     data: {
-    //       name: name,
-    //       email: email,
-    //       message: message
-    //     }
-    //   })
-    // }
   }
   return(
     <Paper className={classes.root}>
@@ -145,21 +130,18 @@ const Contact = () => {
         <Typography className={classes.textMod}>
           ...or send me an E-mail!
         </Typography>
-        <form className={classes.formContainer} onSubmit={handleFormSubmit} autoComplete="off" noValidate>
+        <form id='contactForm' className={classes.formContainer} onSubmit={handleFormSubmit} autoComplete="off" noValidate>
 
             <TextField required id="name" label="Your Name"
-            helperText={nameError ? "THIS FIELD IS REQUIRED *" : ''}
-            onChange={handleFormChange}autoComplete='off' fullWidth variant="outlined"/>
+            helperText={nameError ? "THIS FIELD IS REQUIRED *" : ''}autoComplete='off' fullWidth variant="outlined"/>
 
             <TextField required id="email" label="Your Email" fullWidth
             helperText={emailError ? "INVALID E-MAIL FORMAT *" : ''}
-            onChange={handleFormChange}
             autoComplete='off' variant="outlined"/>
 
 
             <TextField required id="message" label="Your Message" fullWidth
-            helperText={messageError ? "THIS FIELD IS REQUIRED *" : ''}
-            onChange={handleFormChange}
+            helperText={messageError ? "MINIMUM OF 20 CHARACTERS *" : ''}
             multiline
             rows={5}
             rowsMax={5}
