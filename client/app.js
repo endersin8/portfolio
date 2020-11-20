@@ -1,8 +1,8 @@
 import React, {useRef} from 'react'
 import {withRouter, Route, Switch} from 'react-router-dom'
-import {Projects, Navbar, About, Skills, Contact} from './components'
+import {Projects, Navbar, Introduction, About, Skills, Contact} from './components'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
+import {Typography, useMediaQuery} from '@material-ui/core'
 import Typical from 'react-typical'
 
 const useStyles = makeStyles((theme) => ({
@@ -11,26 +11,20 @@ const useStyles = makeStyles((theme) => ({
     minHeight:"100vh"
   },
   container: {
-    paddingBottom: "3.5rem"
+    paddingBottom: "18vh"
   },
   footerContainer: {
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: 'column',
+      alignItems:'center'
+    },
     display:"flex",
-    flexDirection: "column",
+    flexDirection: "row",
+    justifyContent:'center',
     width:"100%",
     position: "absolute",
     bottom: "0",
-    paddingBottom:"2.5rem",
-    height: "2.5rem",
-  },
-  footer: {
-    ...theme.typography.button,
-    alignSelf:"center",
-    background: "#000000",
-    paddingLeft: ".5rem",
-    paddingRight: ".5rem",
-    textTransform: "initial",
-    borderRadius: "1rem",
-    fontWeight: 'bold'
+    paddingBottom: '2vh'
   },
   content: {
     display: "flex",
@@ -42,20 +36,25 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     width: "100%",
-    paddingTop: '6.4vh',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: '10vh'
   },
   projectHeader: {
     fontWeight: 'bold',
     [theme.breakpoints.down("xs")]: {
-      fontSize: 20
+      fontSize: 25
     },
-    marginBottom: 0,
-    fontSize: 32
+    marginTop: 0,
+
+    fontSize: 40
   },
   skillsCont: {
     width: "100%",
     paddingTop: '6.4vh'
+  },
+  aboutCont: {
+    width: '100%',
+    paddingTop: '8vh'
   },
   contactCont: {
     width: "100%",
@@ -68,7 +67,11 @@ const App = () => {
   const projectRef = useRef()
   const skillRef = useRef()
   const contactRef = useRef()
+  const homeRef = useRef()
   const refClickObj = {
+    homeClick() {
+      homeRef.current.scrollIntoView({behavior:'smooth'})
+    },
     aboutClick() {
       aboutRef.current.scrollIntoView({ behavior: 'smooth' })
     },
@@ -85,21 +88,25 @@ const App = () => {
 
   const theme = useTheme()
   const classes = useStyles(theme)
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
   return(
-    <div ref={aboutRef} className={classes.root}>
+    <div ref={homeRef} className={classes.root}>
       <div className={classes.container}>
         <Navbar refClick={refClickObj}/>
           <div className={classes.content}>
-            <About/>
+            <Introduction/>
+            <div ref={aboutRef} className={classes.aboutCont}>
+              <About/>
+            </div>
             <div className={classes.projectCont} ref={projectRef}>
-            <Typical
+              <Typical
               className={classes.projectHeader}
               loop={1}
               steps={[
                 "Projects",3000,
                 "Here are my Projects!",3000
                 ]}
-        />
+              />
               <Projects/>
             </div>
             <div ref={skillRef} className={classes.skillsCont}>
@@ -112,9 +119,12 @@ const App = () => {
           </div>
       </div>
       <div className={classes.footerContainer}>
-        <Typography className={classes.footer}>
+        {isMobile? <Typography>
           Developed by Anderson Yoon
-        </Typography>
+        </Typography>: <Typography>
+          Developed by Anderson Yoon | ayoon1337@gmail.com
+        </Typography>}
+        {isMobile? <Typography>ayoon1337@gmail.com</Typography> : undefined}
       </div>
     </div>
   )

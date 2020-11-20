@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
     height: 80
   },
   navBar: {
+    backgroundColor: "rgba(33,33,33,0.8)"
   },
   mItem: {
     fontWeight: "bold",
@@ -81,6 +82,10 @@ const Navbar = (props) => {
   }
 
   const menuItems = [
+    {
+      menuTitle: 'Home',
+      refClick: refClick.homeClick
+    },
     {
       menuTitle: 'About',
       refClick: refClick.aboutClick
@@ -152,7 +157,7 @@ const Navbar = (props) => {
             : (
               <div>
                 <IconButton
-                  onClick={()=>{handleButtonClick('/')}}
+                  onClick={()=>{refClick.homeClick()}}
                   aria-label="home" className={classes.home} size="small">
                   <HomeIcon/>
                 </IconButton>

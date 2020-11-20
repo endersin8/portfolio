@@ -50,6 +50,15 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: '#ff4081'
     }
+  },
+  resumeBtn: {
+    backgroundColor: '#18ffff',
+    color: '#000000',
+    margin: '2vh',
+    fontWeight: 'bold',
+    '&:hover': {
+      backgroundColor: '#ff4081'
+    }
   }
 }))
 
@@ -81,7 +90,7 @@ const Contact = () => {
     if (!emailTest || !emailTestTwo) {
       setEmailError(true)
     }
-    if (message.length < 20 ) {
+    if (message.length < 10 ) {
       setMessageError(true)
     }
     if (name.length > 0) {
@@ -90,10 +99,10 @@ const Contact = () => {
     if (emailTest && emailTestTwo) {
       setEmailError(false)
     }
-    if (message.length >= 20) {
+    if (message.length >= 10) {
       setMessageError(false)
     }
-    if (name.length > 0 && emailTest && emailTestTwo && message.length >= 20) {
+    if (name.length > 0 && emailTest && emailTestTwo && message.length >= 10) {
       const data = {
         name: name,
         email: email,
@@ -101,9 +110,10 @@ const Contact = () => {
       }
       axios({
         method: "POST",
-        url: "https://6pjesdr0hl.execute-api.us-east-1.amazonaws.com/dev/sendMessage",
+        url: "https://r1grxgoppf.execute-api.us-east-1.amazonaws.com/prod",
         data: data
       }).then((res) => {
+        console.log(res)
         if (res.data.msg === 'success') {
           alert(`Message sent successfully!. Thank you, ${name}!`)
           document.getElementById('contactForm').reset()
@@ -116,6 +126,9 @@ const Contact = () => {
   }
   return(
     <Paper className={classes.root}>
+        <Button href="/assets/Anderson_Yoon_Resume.pdf" target="_blank" className={classes.resumeBtn}>
+          Click for my Resume
+        </Button>
         <Typography className={classes.textMod}>
           Contact me through...
         </Typography>
@@ -145,10 +158,10 @@ const Contact = () => {
 
 
             <TextField required id="message" label="Your Message" fullWidth
-            helperText={messageError ? "MINIMUM OF 20 CHARACTERS *" : ''}
+            helperText={messageError ? "MINIMUM OF 10 CHARACTERS *" : ''}
             multiline
-            rows={5}
-            rowsMax={5}
+            rows={6}
+            rowsMax={6}
             autoComplete='off' variant="outlined"/>
 
             <Button type="submit" className={classes.submitBtn} variant="contained">

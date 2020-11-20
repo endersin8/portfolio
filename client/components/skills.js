@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme)=>({
   },
   divider: {
     backgroundColor: "#76ff03",
-    height: "1px",
-    width: '90%',
+    height: "2px",
+    width: '70%',
     margin: '4vh'
   },
   listContainer: {
@@ -49,25 +49,12 @@ const useStyles = makeStyles((theme)=>({
     fontWeight: 'bold',
     marginLeft: '1vh'
   },
-  profHeader: {
-    fontWeight: 'bold',
-  },
-  profIcon: {
-    color: '#ff4081',
-  },
-  learnIcon: {
-    color: '#18ffff'
-  },
   socialSkill: {
     fontWeight: 'bold',
     fontSize: '22px',
     [theme.breakpoints.down("xs")]: {
       fontSize: 18
     },
-  },
-  profHeaderCont: {
-    display: 'flex',
-    justifyContent: 'center',
   }
 }))
 
@@ -89,12 +76,6 @@ const Skills = () => {
         </TextLoop>
       </Paper>
       <div className={classes.divider}/>
-      <div className={classes.profHeaderCont}>
-        <Typography className={classes.profHeader}>Proficiency ?</Typography>
-        <StarRateRoundedIcon className={classes.profIcon}/>
-        <Typography className={classes.profHeader}> : </Typography>
-        <StarRateRoundedIcon className={classes.learnIcon}/>
-      </div>
       <Paper className={classes.listContainer}>
             {skillsArr.map((skill) => {
               return(
@@ -105,9 +86,7 @@ const Skills = () => {
                       </Avatar>
 
                     <Typography className={classes.textMod}>{skill.name}</Typography>
-                        {skill.proficiency ?
-                        <StarRateRoundedIcon className={classes.profIcon}/> :
-                        <StarRateRoundedIcon className={classes.learnIcon}/>}
+
                 </Box>
               )
             })}
@@ -121,9 +100,6 @@ const Skills = () => {
             "I am Open-Minded",3000,
             "I am a Hard Worker",3000,
             "I am an Active Listener",3000,
-            "I am Flexible",3000,
-            "I am Motivated",3000,
-            "I am Patient",3000,
             "I am Compassionate",3000,
             "I am a Visualizer",3000,
           ]}

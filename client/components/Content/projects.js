@@ -18,7 +18,7 @@ export const projectArr = [
   {
     name: "Scoobyasso",
     roleDate: "Fullstack Developer from August 2020 to August 2020",
-    desc: "Scoobyasso is the first project I've ever worked on. My team and I created an implementation of an e-commerce website with a typical user shopping experience. My main contribution during this project was designing and maintaining persistent cart functionality for both guest and user experiences. Cart information would be saved and persisted for both user and guest through the use of cookies.",
+    desc: "An implementation of an e-commerce website with a typical user shopping experience. My main contribution during this project was designing and maintaining persistent cart functionality for both guest and user experiences. Cart information would be saved and persisted for both user and guest through the use of cookies.",
     stack: 'Developed with Node.js, Express.js, React, Redux, Postgres, Sequelize, Webpack, Passport',
     image: "/assets/projects/scoobyasso.jpeg",
     projectUrl: "https://scoobyasso.herokuapp.com/"
