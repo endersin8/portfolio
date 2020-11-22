@@ -1,10 +1,6 @@
-import { CardActionArea, Typography, Button, Box } from '@material-ui/core'
+import { Typography, Button, Box } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
-import React, {useState} from 'react'
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
+import React from 'react'
 import {projectArr} from './Content/projects'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
@@ -32,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     margin: '2vh',
-    alignItems: 'center'
+    alignItems: 'center',
+    textAlign: 'center'
   },
 
   projectTitle: {

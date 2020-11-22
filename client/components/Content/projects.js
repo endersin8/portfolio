@@ -2,9 +2,9 @@ export const projectArr = [
   {
     name: "Weather-Or-Not",
     roleDate: "React-Native Developer from October 2020 to November 2020",
-    desc: "A handy mobile application for checking the weather! Aside from starting the application to view accurate weather data based on location, users are able to set a time to recieve weather information through push notification subscription.",
+    desc: "An implementation of the weather application for mobile devices. Aside from starting the application to view accurate weather data based on location, users are able to set a time to receive daily reminders to check the weather, through push notifications.",
     stack: 'Developed with React-Native, Expo, OpenWeatherMap-API, Nominatim-API',
-    image: "/assets/projects/ncloudy.jpg",
+    image: "/assets/projects/won.png",
     projectUrl: "https://github.com/Kode-Kings/WeatherOrNot"
   },
   {
