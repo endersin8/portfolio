@@ -9,12 +9,6 @@ const useStyles=makeStyles((theme) => ({
     justifyContent:'center',
     alignItems: 'center'
   },
-  aboutHeader: {
-    [theme.breakpoints.down("xs")]: {
-      fontSize: 25
-    },
-    fontSize: 40
-  },
   aboutSubHeader: {
     fontSize: 20,
     color: '#18ffff'
@@ -53,9 +47,6 @@ const About = () => {
   const classes=useStyles(theme)
   return(
     <Box className={classes.root}>
-        <Typography className={classes.aboutHeader}>
-          About
-        </Typography>
       <Typography className={classes.aboutSubHeader}>
         - As a Software Engineer -
       </Typography>

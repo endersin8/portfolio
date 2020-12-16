@@ -2,22 +2,21 @@ import React from 'react'
 import {Paper, Typography, Box} from '@material-ui/core'
 import {makeStyles, useTheme} from '@material-ui/core/styles'
 import {skillsArr} from './Content/skills'
-import TextLoop from 'react-text-loop'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from '@material-ui/core/Avatar'
 import FolderIcon from '@material-ui/icons/Folder'
 import Typical from 'react-typical'
-import StarRateRoundedIcon from '@material-ui/icons/StarRateRounded';
+
 
 const useStyles = makeStyles((theme)=>({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-    paddingTop: '5vh'
+    alignItems: 'center'
   },
   headerText: {
-    fontWeight: "bold"
+    fontWeight: "bold",
+    color: '#18ffff'
   },
   headerCont: {
     display: 'flex',
@@ -67,15 +66,7 @@ const Skills = () => {
     <Paper className={classes.root}>
       <Paper className={classes.headerCont}>
         <Typography variant={headerSize} className={classes.headerText}>I know how to work with...</Typography>
-        <TextLoop mask={true} fade={false}>
-          {skillsArr.map((skill)=> {
-            return(
-              <Typography variant={headerSize} className={classes.headerText} key={`${skill.name}0`}>{skill.name}</Typography>
-            )
-          })}
-        </TextLoop>
       </Paper>
-      <div className={classes.divider}/>
       <Paper className={classes.listContainer}>
             {skillsArr.map((skill) => {
               return(

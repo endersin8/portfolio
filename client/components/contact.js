@@ -1,18 +1,17 @@
 import React, {useState} from 'react'
-import {Typography, Paper, IconButton, TextField, Button} from '@material-ui/core'
+import {Typography, Paper, IconButton, TextField, Button, Box} from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import TextLoop from 'react-text-loop'
+import GitHubIcon from '@material-ui/icons/GitHub'
+import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import axios from 'axios'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: '3vh',
     display:'flex',
     flexDirection: 'column',
     justifyContent:'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    width: '100%'
   },
   textMod: {
     fontWeight: 'bold',
@@ -35,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   formContainer: {
     display:"flex",
     flexDirection: 'column',
-    width: '30%',
+    width: '40%',
     [theme.breakpoints.down("xs")]: {
       width: '90%',
     },
@@ -75,7 +74,6 @@ const Contact = () => {
   const handleClick = (link) => {
     window.open(link)
   }
-
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
@@ -125,17 +123,13 @@ const Contact = () => {
     }
   }
   return(
-    <Paper className={classes.root}>
+    <Box className={classes.root}>
         <Button href="/assets/Anderson_Yoon_Resume.pdf" target="_blank" className={classes.resumeBtn}>
           Click for my Resume
         </Button>
         <Typography className={classes.textMod}>
           Contact me through...
         </Typography>
-        <TextLoop mask={true} fade={false}>
-          <Typography className={classes.textMod}>GitHub!</Typography>
-          <Typography className={classes.textMod}>LinkedIn!</Typography>
-        </TextLoop>
         <Paper>
           <IconButton className={classes.ghButton} onClick={()=>{handleClick(gitHub)}}>
             <GitHubIcon/>
@@ -168,7 +162,7 @@ const Contact = () => {
               Send
             </Button>
         </form>
-    </Paper>
+    </Box>
   )
 }
 

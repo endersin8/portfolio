@@ -5,7 +5,7 @@ export const projectArr = [
     desc: "An implementation of the weather application for mobile devices. Aside from starting the application to view accurate weather data based on location, users are able to set a time to receive daily reminders to check the weather, through push notifications.",
     stack: 'Developed with React-Native, Expo, OpenWeatherMap-API, Nominatim-API',
     image: "/assets/projects/won.png",
-    projectUrl: "https://github.com/Kode-Kings/WeatherOrNot"
+    projectUrl: "https://exp.host/@endersin8/Weather-Or-Not"
   },
   {
     name: "Kitchen-Kevin",

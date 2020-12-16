@@ -80,9 +80,17 @@
 
 body {
   background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
+/* body::-webkit-scrollbar {
+  display: none
+} */
+
+
 #app {
+  width: 100%;
   position: absolute;
   z-index:2
 }

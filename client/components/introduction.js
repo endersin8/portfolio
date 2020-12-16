@@ -35,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
   },
   hello: {
     borderRadius: "1rem",
-    fontSize: 40,
+    fontSize: 18,
     margin:'2vh',
     fontWeight: "bold",
     [theme.breakpoints.down("xs")]: {
-      fontSize: 18
+      fontSize: 14
     }
   },
   avCont: {
@@ -60,7 +60,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 24
   },
   occupation: {
-    color: '#ff4081'
+    color: '#ff4081',
+    fontSize: 24
   },
   text: {
     ...theme.typography.button,
@@ -85,16 +86,16 @@ const About = (props) => {
           loop={1}
           wrapper='b'
           steps={[
-            'Hello World!', 4000,
-            'Welcome to my website!', 4000
+            'Hello World! Welcome to my website!', 4000
           ]}
         />
         <div className={classes.avCont}>
           <Avatar alt="Anderson Yoon" className={classes.av} src={"assets/IMG_0698.jpeg"}/>
           <div className={classes.textCont}>
-            <Typography className={classes.name}>ANDERSON</Typography>
-            <Typography className={classes.name}>YOON</Typography>
-            <Typography className={classes.occupation}>SOFTWARE ENGINEER</Typography>
+            <Typography className={classes.name}>Anderson</Typography>
+            <Typography className={classes.name}>Yoon</Typography>
+            &diams;
+            <Typography className={classes.occupation}>Software Engineer</Typography>
           </div>
         </div>
 
